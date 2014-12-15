@@ -1,6 +1,6 @@
-# Jekyll2ghost
+# Jekyll to Ghost
 
-TODO: Write a gem description
+Export your Jekyll blog posts to Ghost. Compatible with Octopress / Hexo / Hugo / Logdown too.
 
 ## Installation
 
@@ -29,3 +29,15 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Create Your "Jekyll to X" or "X to Ghost" Tool
+
+This tool is built with 2 parts: the `.md` file parser, and the format converter. You're free to take any part of this tool to build your "Jekyll to X" or "X to Ghost" exporter.
+
+## License
+
+MIT License. See "LICENSE.txt".
+
+## Credits
+
+The concept of this tool was from [evilsocket/octoghost](https://github.com/evilsocket/octoghost). I re-built it in Ruby and added some features for me. Thank you, [Simone Margaritelli](https://github.com/evilsocket)!

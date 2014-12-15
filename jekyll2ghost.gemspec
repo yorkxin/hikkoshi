@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Jekyll2ghost::VERSION
   spec.authors       = ["Yu-Cheng Chuang"]
   spec.email         = ["ducksteven@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Export Jekyll posts to Ghost}
+  spec.description   = %q{Export your Jekyll blog posts to Ghost. Compatible with Octopress / Hexo / Logdown too.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
