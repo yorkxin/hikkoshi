@@ -7,7 +7,8 @@ class Jekyll2ghost::Post
 
   SEPARATOR = /---\r?\n/
 
-  attr_reader :metadata, :content
+  attr_reader :metadata
+  attr_accessor :content
   attr_reader :title, :slug, :status, :published_at, :updated_at, :categories, :tags 
   attr_accessor :id
 

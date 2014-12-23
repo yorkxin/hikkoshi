@@ -1,4 +1,5 @@
 require 'json'
+require 'jekyll2ghost/table_downgrader'
 
 class Jekyll2ghost::Exporter
   extend Slugify
@@ -8,6 +9,10 @@ class Jekyll2ghost::Exporter
   def initialize(dir, current:)
     @posts = load_posts(dir)
     number_posts(@posts)
+
+    @posts.each do |post|
+      post.content = TableDowngrader.new(post.content).downgrade
+    end
 
     @registered_tags = {} # name => Tag instance
 
