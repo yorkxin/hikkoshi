@@ -49,7 +49,8 @@ class TableDowngrader
 
     def converted_text
       if self.table?
-        convert_table(@text)
+        # TODO: make this optional
+        convert_table(@text) + "\n<!--\n#{@text}\n-->\n"
       else
         @text
       end
