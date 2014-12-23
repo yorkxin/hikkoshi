@@ -1,3 +1,41 @@
 #!/usr/bin/env ruby
 
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+
 require 'jekyll2ghost'
+require 'jekyll2ghost/exporter'
+
+require 'optparse'
+
+options = {}
+
+OptionParser.new {|opts|
+  opts.banner = "Usage: \e[1mjekyll2ghost -c CURRENT_JSON -p POSTS_DIR -o OUT_FILE\e[m"
+
+  opts.separator ""
+  opts.separator "You have to \e[1;33mdownload current backup\e[m from Ghost and save to CURRENT_JSON first."
+
+  opts.separator ""
+  opts.separator "Required arguments:"
+
+  opts.on("-c CURRENT_JSON", "Current Ghost backup file") {|filename|
+    options[:current] = File.expand_path(filename)
+  }
+
+  opts.on("-p POSTS_DIR", "The directory contains all the posts") {|path|
+    options[:dir] = File.expand_path(path)
+  }
+
+  opts.on("-o OUT_FILE", "Export to file") {|filename|
+    options[:output] = File.expand_path(filename)
+  }
+
+  opts.separator ""
+  opts.separator "Example: jekyll2ghost -c last_backup.json -p ~/blog/data/_posts/ -o ghost.json"
+}.parse!
+
+exporter = Jekyll2ghost::Exporter.new(options[:dir], current: options[:current])
+
+File.open(File.expand_path(options[:output]), "w") {|fout|
+  fout.write exporter.to_json
+}
