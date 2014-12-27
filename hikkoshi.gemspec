@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll2ghost/version'
+require 'hikkoshi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekyll2ghost"
-  spec.version       = Jekyll2ghost::VERSION
+  spec.name          = "hikkoshi"
+  spec.version       = Hikkoshi::VERSION
   spec.authors       = ["Yu-Cheng Chuang"]
   spec.email         = ["ducksteven@gmail.com"]
-  spec.summary       = %q{Export Jekyll posts to Ghost}
-  spec.description   = %q{Export your Jekyll blog posts to Ghost. Compatible with Octopress / Hexo / Logdown too.}
+  spec.summary       = %q{Blog Moving Tool Framework}
+  spec.description   = %q{A frmaework to move your blogs from one system to another"}
   spec.homepage      = ""
   spec.license       = "MIT"
 

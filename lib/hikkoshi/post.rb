@@ -2,7 +2,7 @@ require 'yaml'
 require 'ostruct'
 require 'time'
 
-class Jekyll2ghost::Post
+class Hikkoshi::Post
   extend Slugify
 
   SEPARATOR = /---\r?\n/

@@ -1,7 +1,7 @@
 require 'json'
-require 'jekyll2ghost/table_downgrader'
+require 'hikkoshi/table_downgrader'
 
-class Jekyll2ghost::Exporter
+class Hikkoshi::Exporter
   extend Slugify
 
   VERSION = "003"
@@ -36,7 +36,7 @@ class Jekyll2ghost::Exporter
   private
 
   def load_posts(dir)
-    Dir.glob(File.join(dir, "**/*")).map {|file| Jekyll2ghost::Post.new(file) }
+    Dir.glob(File.join(dir, "**/*")).map {|file| Hikkoshi::Post.new(file) }
   end
 
   def number_posts(posts)
@@ -74,7 +74,7 @@ class Jekyll2ghost::Exporter
   end
 
   def new_tag(name, slug)
-    Jekyll2ghost::Tag.new({
+    Hikkoshi::Tag.new({
       slug: slug,
       name: name
     })

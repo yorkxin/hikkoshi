@@ -1,6 +1,6 @@
 require 'securerandom'
 
-class Jekyll2ghost::Tag
+class Hikkoshi::Tag
   extend Slugify
 
   @@current_id = 1

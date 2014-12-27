@@ -1,3 +1,3 @@
-module Jekyll2ghost
+module Hikkoshi
   VERSION = "0.0.1"
 end

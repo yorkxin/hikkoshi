@@ -2,15 +2,15 @@
 
 $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 
-require 'jekyll2ghost'
-require 'jekyll2ghost/exporter'
+require 'hikkoshi'
+require 'hikkoshi/exporter'
 
 require 'optparse'
 
 options = {}
 
 OptionParser.new {|opts|
-  opts.banner = "Usage: \e[1mjekyll2ghost -c CURRENT_JSON -p POSTS_DIR -o OUT_FILE\e[m"
+  opts.banner = "Usage: \e[1mhikkoshi -c CURRENT_JSON -p POSTS_DIR -o OUT_FILE\e[m"
 
   opts.separator ""
   opts.separator "You have to \e[1;33mdownload current backup\e[m from Ghost and save to CURRENT_JSON first."
@@ -31,10 +31,10 @@ OptionParser.new {|opts|
   }
 
   opts.separator ""
-  opts.separator "Example: jekyll2ghost -c last_backup.json -p ~/blog/data/_posts/ -o ghost.json"
+  opts.separator "Example: hikkoshi -c last_backup.json -p ~/blog/data/_posts/ -o ghost.json"
 }.parse!
 
-exporter = Jekyll2ghost::Exporter.new(options[:dir], current: options[:current])
+exporter = Hikkoshi::Exporter.new(options[:dir], current: options[:current])
 
 File.open(File.expand_path(options[:output]), "w") {|fout|
   fout.write exporter.to_json
