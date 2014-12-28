@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in hikkoshi.gemspec
+gemspec
+
+gem "hikkoshi-jekyll", :path => '../hikkoshi-jekyll', :group => :development
+gem "hikkoshi-hexo", :path => '../hikkoshi-hexo', :group => :development
+gem "hikkoshi-logdown", :path => '../hikkoshi-logdown', :group => :development

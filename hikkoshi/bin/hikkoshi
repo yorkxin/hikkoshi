@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+
+require 'optparse'
+require 'active_support/inflector'
+
+require 'hikkoshi'
+
+options = {}
+
+OptionParser.new {|opts|
+  opts.banner = "Usage: \e[1mhikkoshi -f BLOG_SYSTEM_A -t BLOG_SYSTEM_B -i INPUT_PATH -o OUTPUT_PATH\e[m"
+
+  opts.separator ""
+  opts.separator "Required arguments:"
+
+  opts.on("-f BLOG_SYSTEM_A", "Your current blog system, e.g. jekyll") {|from|
+    options[:from] = from
+  }
+
+  opts.on("-t BLOG_SYSTEM_B", "Your target blog system, e.g. ghost") {|to|
+    options[:to] = to
+  }
+
+  opts.on("-i INPUT_PATH", "Location of your current blog posts.") {|filename|
+    options[:input] = File.expand_path(filename)
+  }
+
+  opts.on("-o OUTPUT_PATH", "Location to store the exported file(s).") {|filename|
+    options[:output] = File.expand_path(filename)
+  }
+
+  opts.separator ""
+  opts.separator "Example: hikkoshi -f jekyll -t ghost -i ~/blog-jekyll/_posts/ -o ~/tmp/ghost.json"
+}.parse!
+
+load_success = true
+
+begin
+  require "hikkoshi/#{options[:from]}"
+rescue LoadError => e
+  STDERR.puts "Unable to load importer for #{options[:from]}. Try `gem install hikkoshi-#{options[:from]}`."
+  load_success = false
+end
+
+begin
+  require "hikkoshi/#{options[:to]}"
+rescue LoadError => e
+  STDERR.puts "Unable to load exporter for #{options[:to]}. Try `gem install hikkoshi-#{options[:to]}`."
+  load_success = false
+end
+
+exit(1) unless load_success
+
+importer_class = "hikkoshi/#{options[:from]}/importer".camelize.constantize
+exporter_class = "hikkoshi/#{options[:to]}/exporter".camelize.constantize
+
+importer = importer_class.new(options[:input])
+exporter = exporter_class.new(importer.posts)
+exporter.export(options[:output])
+
+puts "Exported #{importer.posts.size} posts."

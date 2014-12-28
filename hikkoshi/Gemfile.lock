@@ -1,0 +1,69 @@
+PATH
+  remote: .
+  specs:
+    hikkoshi (0.0.1)
+      activesupport
+      slop
+
+PATH
+  remote: ../hikkoshi-hexo
+  specs:
+    hikkoshi-hexo (0.0.1)
+      hikkoshi-jekyll (~> 0.0.1)
+
+PATH
+  remote: ../hikkoshi-jekyll
+  specs:
+    hikkoshi-jekyll (0.0.1)
+      hikkoshi (~> 0.0.1)
+
+PATH
+  remote: ../hikkoshi-logdown
+  specs:
+    hikkoshi-logdown (0.0.1)
+      hikkoshi-jekyll (~> 0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    coderay (1.1.0)
+    columnize (0.9.0)
+    debugger-linecache (1.2.0)
+    i18n (0.7.0)
+    json (1.8.1)
+    method_source (0.8.2)
+    minitest (5.5.0)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
+    rake (10.4.2)
+    slop (3.6.0)
+    thread_safe (0.3.4)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.7)
+  hikkoshi!
+  hikkoshi-hexo!
+  hikkoshi-jekyll!
+  hikkoshi-logdown!
+  pry-byebug (~> 2.0.0)
+  rake (~> 10.0)
