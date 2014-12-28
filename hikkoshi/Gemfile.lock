@@ -3,7 +3,6 @@ PATH
   specs:
     hikkoshi (0.0.1)
       activesupport
-      slop
 
 PATH
   remote: ../hikkoshi-hexo
@@ -21,6 +20,7 @@ PATH
   remote: ../hikkoshi-logdown
   specs:
     hikkoshi-logdown (0.0.1)
+      hikkoshi (~> 0.0.1)
       hikkoshi-jekyll (~> 0.0.1)
 
 GEM
