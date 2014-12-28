@@ -19,7 +19,7 @@ TODO: Write usage instructions here
 * If you export to Jekyll, the Mathjax syntax from Logdown will bite you. Simply remove those <code>\`\`\`mathjax</code> snippets from all Markdown files and Jekyll will be happy.
 * If you got YAML parse error, check whether there is any markdown file contains the following front-matter:
 
-      title: 'Santa's travel'
+        title: 'Santa's travel'
 
   This is obviously an syntax error in YAML. Logdown does not escape these cases properly. The workarounds may be replacing the apostrophe `'` (U+0027) by a real single quote `’` (U+2019), or simply removing the outer quotes.
 
