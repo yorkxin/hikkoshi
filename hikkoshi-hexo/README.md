@@ -1,20 +1,10 @@
 # Hikkoshi::Hexo
 
-TODO: Write a gem description
+Hikkoshi support for Hexo.
+
+Extended from Jekyll because the definition of Hexo's front-matters and rule of file names are a little bit different from Jekyll.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'hikkoshi-hexo'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install hikkoshi-hexo
 

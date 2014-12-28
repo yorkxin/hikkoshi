@@ -1,20 +1,8 @@
 # Hikkoshi::Jekyll
 
-TODO: Write a gem description
+Hikkoshi support for Jekyll.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'hikkoshi-jekyll'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install hikkoshi-jekyll
 
